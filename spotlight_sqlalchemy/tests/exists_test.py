@@ -1,5 +1,5 @@
 from spotlight import errors as err
-from spotlight.plugin.sqlalchemy.tests.plugin_test import SqlAlchemyPluginTest
+from spotlight_sqlalchemy.tests.plugin_test import SqlAlchemyPluginTest
 
 
 class ExistsTest(SqlAlchemyPluginTest):
