@@ -1,6 +1,6 @@
 import unittest
 
-from spotlight_sqlalchemy.plugin import SqlAlchemyPlugin
+from spotlight_sqlalchemy.plugin import SQLAlchemyPlugin
 from spotlight_sqlalchemy.tests.database import Base, session, User
 from spotlight.validator import Validator
 
@@ -12,7 +12,7 @@ class SqlAlchemyPluginTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls._setUpDatabase()
-        cls.validator = Validator([SqlAlchemyPlugin(cls._session)])
+        cls.validator = Validator([SQLAlchemyPlugin(cls._session)])
 
     @classmethod
     def _setUpDatabase(cls):

@@ -2,7 +2,7 @@ from spotlight.validator import Validator
 from spotlight_sqlalchemy import rules
 
 
-class SqlAlchemyPlugin(Validator.Plugin):
+class SQLAlchemyPlugin(Validator.Plugin):
     def __init__(self, session):
         self._session = session
 
