@@ -45,7 +45,9 @@ class UniqueRule(DependentRule, SessionRule):
         where_val=None,
     ):
         # Create query
-        query = "SELECT * FROM {} WHERE {} = :value1".format(table, column)
+        query = "SELECT * FROM {table} WHERE {column} = :value1".format(
+            table=table, column=column
+        )
         params = {"value1": value}
 
         # If ignore values are set
@@ -55,7 +57,7 @@ class UniqueRule(DependentRule, SessionRule):
 
         # If where values are set
         if where_col and where_val:
-            query += " AND {} = :where_val".format(where_col)
+            query += " AND {where_col} = :where_val".format(where_col=where_col)
             params["where_val"] = where_val
 
         result = self._session.execute(query, params).first()
@@ -82,8 +84,11 @@ class ExistsRule(DependentRule, SessionRule):
             self.message_fields = dict(field=field, other=where_col)
             self.error = errors.EXISTS_WHERE_ERROR
 
-            query = "SELECT * FROM {} WHERE {} = :value1 " "AND {} = :value2".format(
-                table, column, where_col
+            query = (
+                "SELECT * FROM {table} WHERE {column} = :value1 "
+                "AND {where_col} = :value2".format(
+                    table=table, column=column, where_col=where_col
+                )
             )
             params = {"value1": value, "value2": where_val}
             exists = self._session.execute(query, params).first()
@@ -91,7 +96,9 @@ class ExistsRule(DependentRule, SessionRule):
             self.message_fields = dict(field=field)
             self.error = errors.EXISTS_ERROR
 
-            query = "SELECT * FROM {} WHERE {} = :value1".format(table, column)
+            query = "SELECT * FROM {table} WHERE {column} = :value1".format(
+                table=table, column=column
+            )
             params = {"value1": value}
             exists = self._session.execute(query, params).first()
 
