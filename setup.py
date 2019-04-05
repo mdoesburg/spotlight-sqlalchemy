@@ -9,7 +9,7 @@ setuptools.setup(
     version='0.1.0',
     author='Michiel Doesburg',
     author_email='michiel@moddix.com',
-    description='Laravel style input validation for Python.',
+    description='SQLAlchemy plugin for Spotlight.',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/mdoesburg/spotlight-sqlalchemy',
