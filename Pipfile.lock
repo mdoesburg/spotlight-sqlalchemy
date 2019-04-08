@@ -78,11 +78,11 @@
         },
         "spotlight": {
             "hashes": [
-                "sha256:0efee09eb9504260eac24c4a4fdc71d0ead83747230df9a5f0ce92ed39deb953",
-                "sha256:dc6ab6ea4e9607a1a50f272128132d0b6141795dceb763cfd2506d1136890c2d"
+                "sha256:0ca0976e0d05e8ec7d12b2af721349cf1c83834f77742df5dca8782dd3349a69",
+                "sha256:693e03b04dd8e28685cea3e50cb182fddc6a655c3236b951aaa55b3163df52bc"
             ],
             "index": "pypi",
-            "version": "==0.2.0"
+            "version": "==0.2.1"
         },
         "sqlalchemy": {
             "hashes": [
