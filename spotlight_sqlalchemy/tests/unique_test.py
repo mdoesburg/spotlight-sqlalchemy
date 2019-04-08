@@ -1,4 +1,4 @@
-from spotlight import errors as err
+from spotlight_sqlalchemy import errors as err
 from spotlight_sqlalchemy.tests.plugin_test import SqlAlchemyPluginTest
 
 

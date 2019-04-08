@@ -1,4 +1,4 @@
-from spotlight import errors
+from spotlight_sqlalchemy import errors
 from spotlight.rules import BaseRule, DependentRule
 
 
