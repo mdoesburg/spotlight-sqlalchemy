@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+# Build package
+python setup.py sdist bdist_wheel
+
+# Upload package
+python -m twine upload dist/*
+
+# Clean up files
+rm -r build spotlight_sqlalchemy.egg-info
