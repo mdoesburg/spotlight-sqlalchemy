@@ -1,24 +1,21 @@
+from typing import Any, List
+
 from spotlight_sqlalchemy import errors
-from spotlight.rules import BaseRule, DependentRule
+from spotlight.rules import Rule
 
 
-class SessionRule(BaseRule):
-    def __init__(self, session):
-        super().__init__()
-        self._session = session
-
-    def message(self) -> str:
-        pass
-
-
-class UniqueRule(DependentRule, SessionRule):
+class UniqueRule(Rule):
     """Unique database record"""
 
     name = "unique"
 
-    def passes(self, field, value, rule_values, input_) -> bool:
+    def __init__(self, session):
+        super().__init__()
+        self._session = session
+
+    def passes(self, field: str, value: Any, parameters: List[str], validator) -> bool:
         self.message_fields = dict(field=field)
-        table, column, *extra = rule_values[0].split(",")
+        table, column, *extra = parameters
 
         ignore_col = extra[0] if len(extra) > 0 else None
         ignore_val = extra[1] if len(extra) > 1 else None
@@ -31,6 +28,7 @@ class UniqueRule(DependentRule, SessionRule):
 
         return not exists
 
+    @property
     def message(self) -> str:
         return errors.UNIQUE_ERROR
 
@@ -65,17 +63,18 @@ class UniqueRule(DependentRule, SessionRule):
         return result
 
 
-class ExistsRule(DependentRule, SessionRule):
+class ExistsRule(Rule):
     """Exists in database"""
 
     name = "exists"
 
     def __init__(self, session):
-        super().__init__(session)
+        super().__init__()
+        self._session = session
         self.error = None
 
-    def passes(self, field, value, rule_values, input_) -> bool:
-        table, column, *extra = rule_values[0].split(",")
+    def passes(self, field: str, value: Any, parameters: List[str], validator) -> bool:
+        table, column, *extra = parameters
 
         # Check if extra where is set
         if extra:
@@ -104,5 +103,6 @@ class ExistsRule(DependentRule, SessionRule):
 
         return exists
 
+    @property
     def message(self) -> str:
         return self.error
