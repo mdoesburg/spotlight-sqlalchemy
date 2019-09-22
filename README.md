@@ -10,7 +10,6 @@ SQLAlchemy plugin for [Spotlight](https://github.com/mdoesburg/spotlight).
 
 ## Installation
 Spotlight SQLAlchemy can be installed via pip:
-
 ```
 pip install spotlight-sqlalchemy
 ```
@@ -18,6 +17,7 @@ pip install spotlight-sqlalchemy
 ## Dependencies
 * [python >= 3.6.0](https://www.python.org/)
 * [SQLAlchemy >= 1.3.1](https://pypi.org/project/SQLAlchemy/)
+* [spotlight >= 1.0.1](https://pypi.org/project/spotlight/1.0.0/)
 
 ## Usage
 ```python
