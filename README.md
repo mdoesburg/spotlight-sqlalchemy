@@ -17,7 +17,7 @@ pip install spotlight-sqlalchemy
 ## Dependencies
 * [python >= 3.6.0](https://www.python.org/)
 * [SQLAlchemy >= 1.3.1](https://pypi.org/project/SQLAlchemy/)
-* [spotlight >= 1.0.1](https://pypi.org/project/spotlight/1.0.0/)
+* [spotlight >= 1.0.1](https://pypi.org/project/spotlight/1.0.1/)
 
 ## Usage
 ```python
