@@ -6,12 +6,13 @@ with open("README.md", "r") as f:
 
 setuptools.setup(
     name="spotlight-sqlalchemy",
-    version="0.1.2",
+    version="1.0.0",
     author="Michiel Doesburg",
     author_email="michiel@moddix.com",
     description="SQLAlchemy plugin for Spotlight.",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    keywords="spotlight sqlalchemy validation validate",
     url="https://github.com/mdoesburg/spotlight-sqlalchemy",
     project_urls=OrderedDict(
         (
