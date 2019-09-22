@@ -25,3 +25,9 @@ var/
 .requirements-cache
 node_modules
 __pycache__/
+.coverage
+coverage.xml
+.scannerwork
+.coveragerc
+htmlcov
+sonar-project.properties
