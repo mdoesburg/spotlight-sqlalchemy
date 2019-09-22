@@ -28,10 +28,6 @@ class UniqueRule(Rule):
 
         return not exists
 
-    @property
-    def message(self) -> str:
-        return errors.UNIQUE_ERROR
-
     def _unique_check(
         self,
         value,
@@ -61,6 +57,10 @@ class UniqueRule(Rule):
         result = self._session.execute(query, params).first()
 
         return result
+
+    @property
+    def message(self) -> str:
+        return errors.UNIQUE_ERROR
 
 
 class ExistsRule(Rule):
