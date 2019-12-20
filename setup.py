@@ -1,12 +1,12 @@
-import setuptools
+from setuptools import setup, find_packages
 from collections import OrderedDict
 
 with open("README.md", "r") as f:
     long_description = f.read()
 
-setuptools.setup(
+setup(
     name="spotlight-sqlalchemy",
-    version="1.0.0",
+    version="1.0.1",
     author="Michiel Doesburg",
     author_email="michiel@moddix.com",
     description="SQLAlchemy plugin for Spotlight.",
@@ -21,6 +21,8 @@ setuptools.setup(
         )
     ),
     license="MIT",
-    packages=setuptools.find_packages(),
+    packages=find_packages("src"),
+    package_dir={"": "src"},
+    include_package_data=True,
     install_requires=["spotlight"],
 )

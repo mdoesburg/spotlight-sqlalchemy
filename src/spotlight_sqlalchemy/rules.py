@@ -1,7 +1,8 @@
 from typing import Any, List
 
-from spotlight_sqlalchemy import errors
 from spotlight.rules import Rule
+
+from . import errors
 
 
 class UniqueRule(Rule):

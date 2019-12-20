@@ -21,13 +21,13 @@ pip install spotlight-sqlalchemy
 
 ## Usage
 ```python
-from spotlight_sqlalchemy.plugin import SQLAlchemyPlugin
+from src.spotlight_sqlalchemy.plugin import SQLAlchemyPlugin
 ```
 
 ### Examples
 ```python
 from spotlight.validator import Validator
-from spotlight_sqlalchemy.plugin import SQLAlchemyPlugin
+from src.spotlight_sqlalchemy.plugin import SQLAlchemyPlugin
 
 rules = {
     "id": "exists:user,id",

@@ -1,8 +1,9 @@
 import unittest
 
-from spotlight_sqlalchemy.plugin import SQLAlchemyPlugin
-from spotlight_sqlalchemy.tests.database import Base, session, User
 from spotlight.validator import Validator
+
+from src.spotlight_sqlalchemy.plugin import SQLAlchemyPlugin
+from .database import Base, session, User
 
 
 class SqlAlchemyPluginTest(unittest.TestCase):

@@ -1,5 +1,6 @@
 from spotlight.validator import Validator
-from spotlight_sqlalchemy import rules
+
+from . import rules
 
 
 class SQLAlchemyPlugin(Validator.Plugin):
