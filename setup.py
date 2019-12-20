@@ -6,7 +6,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="spotlight-sqlalchemy",
-    version="1.0.1",
+    version="1.0.2",
     author="Michiel Doesburg",
     author_email="michiel@moddix.com",
     description="SQLAlchemy plugin for Spotlight.",
