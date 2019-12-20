@@ -9,60 +9,60 @@ class UniqueTest(SqlAlchemyPluginTest):
 
     def test_unique_rule_with_existing_email_expect_error(self):
         rules = {"email": "unique:user,email"}
-        input_values = {"email": "john.doe@example.com"}
+        data = {"email": "john.doe@example.com"}
         expected = self.unique_error
 
-        errors = self.validator.validate(input_values, rules)
+        errors = self.validator.validate(data, rules)
         errs = errors.get(self.field)
 
         self.assertEqual(errs[0], expected)
 
     def test_unique_rule_with_new_email_expect_no_error(self):
         rules = {"email": "unique:user,email"}
-        input_values = {"email": "john.doe2@example.com"}
+        data = {"email": "john.doe2@example.com"}
         expected = None
 
-        errors = self.validator.validate(input_values, rules)
+        errors = self.validator.validate(data, rules)
         errs = errors.get(self.field)
 
         self.assertEqual(errs, expected)
 
     def test_unique_rule_with_new_email_and_ignore_expect_no_error(self):
         rules = {"email": "unique:user,email,id,1"}
-        input_values = {"email": "john.doe@example.com"}
+        data = {"email": "john.doe@example.com"}
         expected = None
 
-        errors = self.validator.validate(input_values, rules)
+        errors = self.validator.validate(data, rules)
         errs = errors.get(self.field)
 
         self.assertEqual(errs, expected)
 
     def test_unique_rule_with_new_email_and_ignore_and_where_expect_no_error(self):
         rules = {"email": "unique:user,email,id,1,site_id,1"}
-        input_values = {"email": "john.doe@example.com"}
+        data = {"email": "john.doe@example.com"}
         expected = None
 
-        errors = self.validator.validate(input_values, rules)
+        errors = self.validator.validate(data, rules)
         errs = errors.get(self.field)
 
         self.assertEqual(errs, expected)
 
     def test_unique_rule_with_existing_email_and_ignore_and_where_expect_error(self):
         rules = {"email": "unique:user,email,id,2,site_id,1"}
-        input_values = {"email": "john.doe@example.com"}
+        data = {"email": "john.doe@example.com"}
         expected = self.unique_error
 
-        errors = self.validator.validate(input_values, rules)
+        errors = self.validator.validate(data, rules)
         errs = errors.get(self.field)
 
         self.assertEqual(errs[0], expected)
 
     def test_unique_rule_with_existing_email_and_where_expect_error(self):
         rules = {"email": "unique:user,email,null,null,site_id,1"}
-        input_values = {"email": "john.doe@example.com"}
+        data = {"email": "john.doe@example.com"}
         expected = self.unique_error
 
-        errors = self.validator.validate(input_values, rules)
+        errors = self.validator.validate(data, rules)
         errs = errors.get(self.field)
 
         self.assertEqual(errs[0], expected)
