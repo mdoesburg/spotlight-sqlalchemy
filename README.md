@@ -21,26 +21,26 @@ pip install spotlight-sqlalchemy
 
 ## Usage
 ```python
-from src.spotlight_sqlalchemy.plugin import SQLAlchemyPlugin
+from spotlight_sqlalchemy.plugin import SQLAlchemyPlugin
 ```
 
 ### Examples
 ```python
 from spotlight.validator import Validator
-from src.spotlight_sqlalchemy.plugin import SQLAlchemyPlugin
+from spotlight_sqlalchemy.plugin import SQLAlchemyPlugin
 
 rules = {
     "id": "exists:user,id",
     "email": "unique:user,email"
 }
 
-input_ = {
+data = {
     "id": 1,
     "email": "john.doe@example.com"
 }
 
 validator = Validator([SQLAlchemyPlugin(session)])
-errors = validator.validate(input_, rules)
+errors = validator.validate(data, rules)
 ```
 
 ## Available Rules
